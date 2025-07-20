@@ -34,9 +34,17 @@ jobs:
       run: terraform validate
 
     - name: Terraform Plan
-      run: terraform plan
+      env:
+        GH_OAUTH_TOKEN: ${{ secrets.GH_OAUTH_TOKEN }}
+      run: terraform plan -var "github_oauth_token=$GH_OAUTH_TOKEN"
+
+      
+    - name: Terraform Apply
+      env:
+        GH_OAUTH_TOKEN: ${{ secrets.GH_OAUTH_TOKEN }}
+      run: terraform apply -auto-approve -var "github_oauth_token=$GH_OAUTH_TOKEN"
 
     # Uncomment for automated applies (production use requires care):
     # - name: Terraform Apply
-    #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    # 
     #   run: terraform apply -auto-approve
