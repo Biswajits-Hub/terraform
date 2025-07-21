@@ -7,6 +7,6 @@ files:
 hooks:
   ApplicationStop: []
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: app/scripts/after_install.sh
       timeout: 180
       runas: root
