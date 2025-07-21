@@ -38,7 +38,7 @@ jobs:
         GH_OAUTH_TOKEN: ${{ secrets.GH_OAUTH_TOKEN }}
         ARTIFACT_BUCKET_NAME: ${{ secrets.ARTIFACT_BUCKET_NAME }}
         EC2_TAG_NAME_VALUE: ${{ secrets.EC2_TAG_NAME_VALUE }}
-      run: terraform plan -var "github_oauth_token=$GH_OAUTH_TOKEN" -var "artifact_bucket_name=$ARTIFACT_BUCKET_NAME" -var "ec2_tag_name_value=$EC2_TAG_NAME_VALUE" 
+      run: terraform plan -var "github_oauth_token=$GH_OAUTH_TOKEN" -var "artifact_bucket_name=$ARTIFACT_BUCKET_NAME" -var "ec2_tag_name_value=$EC2_TAG_NAME_VALUE" -var "github_owner=Biswajits-Hub" -var "github_repo=terraform" -var "github_branch=main
 
       
     - name: Terraform Apply
