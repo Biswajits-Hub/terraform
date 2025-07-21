@@ -5,6 +5,7 @@ files:
     destination: /var/www/html
 
 hooks:
+  ApplicationStop: []
   AfterInstall:
     - location: scripts/after_install.sh
       timeout: 180
