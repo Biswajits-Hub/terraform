@@ -50,4 +50,4 @@ jobs:
     # Uncomment for automated applies (production use requires care):
     # - name: Terraform Apply
     # 
-    #   run: terraform apply -auto-approve
+    #   run: terraform apply -auto-approved
