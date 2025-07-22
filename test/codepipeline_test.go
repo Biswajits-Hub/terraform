@@ -9,6 +9,9 @@ import (
 func TestPipelineInfrastructure(t *testing.T) {
     opts := &terraform.Options{
         TerraformDir: "..",
+        Vars: map[string]interface{}{
+            "github_oauth_token": "REPLACE_WITH_YOUR_TOKEN",
+        },
     }
 
     defer terraform.Destroy(t, opts)
