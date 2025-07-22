@@ -2,6 +2,7 @@ resource "aws_instance" "cd_target" {
   ami           = "ami-0150ccaf51ab55a51"         # Use an official or your own AMI ID
   instance_type = "t2.micro"
   subnet_id = "subnet-08cd3b75f943c88c4"
+  iam_instance_profile   = aws_iam_instance_profile.codedeploy_ec2_profile.name
 
    user_data = <<-EOF
               #!/bin/bash
@@ -21,4 +22,7 @@ resource "aws_instance" "cd_target" {
   tags = {
     Name = var.ec2_tag_name_value
   }
+
+  depends_on = [aws_iam_instance_profile.codedeploy_ec2_profile]
+
 }
