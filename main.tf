@@ -6,6 +6,7 @@ module "s3_artifact_bucket" {
 module "ec2" {
   source              = "./modules/ec2"
   ec2_tag_name_value  = var.ec2_tag_name_value
+  iam_instance_profile_name = aws_iam_instance_profile.codedeploy_ec2_profile.name
 }
 
 module "iam" {
