@@ -24,6 +24,6 @@ resource "aws_instance" "cd_target" {
     Name = var.ec2_tag_name_value
   }
 
-  depends_on = [aws_iam_instance_profile.codedeploy_ec2_profile]
+  depends_on = [var.iam_instance_profile_name]
 
 }
